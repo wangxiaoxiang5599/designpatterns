@@ -1,4 +1,4 @@
-package com.test.wxx.abstractfactory;
+package com.test.wxx.factory.abstractfactory;
 
 public class test {
     public static void main(String[] args) {

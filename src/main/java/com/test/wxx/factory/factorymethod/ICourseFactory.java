@@ -1,6 +1,6 @@
-package com.test.wxx.factorymethod;
+package com.test.wxx.factory.factorymethod;
 
-import com.test.wxx.simplyfactory.ICourse;
+import com.test.wxx.factory.simplyfactory.ICourse;
 
 /**
  * 工厂方法-工厂的工厂

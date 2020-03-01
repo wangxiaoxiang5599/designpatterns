@@ -1,4 +1,4 @@
-package com.test.wxx.simplyfactory;
+package com.test.wxx.factory.simplyfactory;
 
 public interface ICourse {
     void study();

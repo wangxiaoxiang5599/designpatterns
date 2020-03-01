@@ -1,4 +1,4 @@
-package com.test.wxx.abstractfactory;
+package com.test.wxx.factory.abstractfactory;
 
 public class JavaCourseFactory extends CourseFactory {
     protected INote createNote() {

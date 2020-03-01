@@ -1,4 +1,4 @@
-package com.test.wxx.simplyfactory;
+package com.test.wxx.factory.simplyfactory;
 
 /**
  * 简单工厂-产品的工厂

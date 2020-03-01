@@ -1,4 +1,4 @@
-package com.test.wxx.simplyfactory;
+package com.test.wxx.factory.simplyfactory;
 
 public class PythonCourse implements ICourse {
     public void study() {
