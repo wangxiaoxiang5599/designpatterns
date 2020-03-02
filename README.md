@@ -4,5 +4,5 @@
 
 [单例模式](doc/singleton.md)
 
-[原型模式与构造模式](doc/prototype.md)
+[原型模式与构造模式](doc/prototypeAndBuilder.md)
 
