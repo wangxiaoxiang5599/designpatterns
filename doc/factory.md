@@ -1,82 +1,82 @@
-# 二、架构师内功心法之设计模式
+# �����ܹ�ʦ�ڹ��ķ�֮���ģʽ
 
-## 2.架构师内功心法之设计模式
+## 2.�ܹ�ʦ�ڹ��ķ�֮���ģʽ
 
-### 2.1.目标
+### 2.1.Ŀ��
 
-1、通过对本章内容的学习，了解设计模式的由来。
+1��ͨ���Ա������ݵ�ѧϰ���˽����ģʽ��������
 
-2、介绍设计模式能帮我们解决哪些问题。
+2���������ģʽ�ܰ����ǽ����Щ���⡣
 
-3、剖析工厂模式的历史由来及应用场景。
+3����������ģʽ����ʷ������Ӧ�ó�����
 
-### 2.2.内容定位
+### 2.2.���ݶ�λ
 
-不用设计模式并非不可以，但是用好设计模式能帮助我们更好地解决实际问题，设计模式最重要的是解耦。设计模式天天都在用，但自己却无感知。我们把设计模式作为一个专题，主要是学习设计模式是如何总结经验的，把经验为自己所用。学设计模式也是锻炼将业务需求转换技术实现的一种非常有效的方式。
+�������ģʽ���ǲ����ԣ������ú����ģʽ�ܰ������Ǹ��õؽ��ʵ�����⣬���ģʽ����Ҫ���ǽ�����ģʽ���춼���ã����Լ�ȴ�޸�֪�����ǰ����ģʽ��Ϊһ��ר�⣬��Ҫ��ѧϰ���ģʽ������ܽᾭ��ģ��Ѿ���Ϊ�Լ����á�ѧ���ģʽҲ�Ƕ�����ҵ������ת������ʵ�ֵ�һ�ַǳ���Ч�ķ�ʽ��
 
-### 2.3.回顾软件设计原则
+### 2.3.�ع��������ԭ��
 
-| 设计原则     | 解释                                                         |
+| ���ԭ��     | ����                                                         |
 | ------------ | ------------------------------------------------------------ |
-| 开闭原则     | 对扩展开放，对修改关闭                                       |
-| 依赖倒置原则 | 通过抽象使各个类或者模块不相互影响，实现松耦合。             |
-| 单一职责原则 | 一个类、接口、方法只做一件事。                               |
-| 接口隔离原则 | 尽量保证接口的纯洁性，客户端不应该依赖不需要的接口。         |
-| 迪米特法则   | 又叫最少知道原则，一个类对其所依赖的类知道得越少越好。       |
-| 里氏替换原则 | 子类可以扩展父类的功能但不能改变父类原有的功能。             |
-| 合成复用原则 | 尽量使用对象组合、聚合，而不使用继承关系达到代码复用的目的。 |
+| ����ԭ��     | ����չ���ţ����޸Ĺر�                                       |
+| ��������ԭ�� | ͨ������ʹ���������ģ�鲻�໥Ӱ�죬ʵ������ϡ�             |
+| ��һְ��ԭ�� | һ���ࡢ�ӿڡ�����ֻ��һ���¡�                               |
+| �ӿڸ���ԭ�� | ������֤�ӿڵĴ����ԣ��ͻ��˲�Ӧ����������Ҫ�Ľӿڡ�         |
+| �����ط���   | �ֽ�����֪��ԭ��һ�����������������֪����Խ��Խ�á�       |
+| �����滻ԭ�� | ���������չ����Ĺ��ܵ����ܸı丸��ԭ�еĹ��ܡ�             |
+| �ϳɸ���ԭ�� | ����ʹ�ö�����ϡ��ۺϣ�����ʹ�ü̳й�ϵ�ﵽ���븴�õ�Ŀ�ġ� |
 
-### 2.4.设计模式总览
+### 2.4.���ģʽ����
 
-写出优雅的代码
+д�����ŵĴ���
 
-更好地重构项目
+���õ��ع���Ŀ
 
-经典框架都在用设计模式解决问题
+�����ܶ��������ģʽ�������
 
-Spring就是一个把设计模式用得淋漓尽致的经典框架，其实从类的命名就能看出来，我来一一列举：
+Spring����һ�������ģʽ�õ����쾡�µľ����ܣ���ʵ������������ܿ�����������һһ�о٣�
 
-| 设计模式名称 | 举例                  |
+| ���ģʽ���� | ����                  |
 | ------------ | --------------------- |
-| 工厂模式     | BeanFactory           |
-| 装饰器模式   | BeanWrapper           |
-| 代理模式     | AopProxy              |
-| 委派模式     | DispatcherServlet     |
-| 策略模式     | HandlerMapping        |
-| 适配器模式   | HandlerAdapter        |
-| 模板模式     | JdbcTemplate          |
-| 观察者模式   | ContextLoaderListener |
+| ����ģʽ     | BeanFactory           |
+| װ����ģʽ   | BeanWrapper           |
+| ����ģʽ     | AopProxy              |
+| ί��ģʽ     | DispatcherServlet     |
+| ����ģʽ     | HandlerMapping        |
+| ������ģʽ   | HandlerAdapter        |
+| ģ��ģʽ     | JdbcTemplate          |
+| �۲���ģʽ   | ContextLoaderListener |
 
-围绕 Spring 的 IOC、AOP、MVC、JDBC
-这样的思路展开，根据其设计类型来设计讲解顺序：
+Χ�� Spring �� IOC��AOP��MVC��JDBC
+������˼·չ���������������������ƽ���˳��
 
-| 类型       | 名称       | 英文              |
+| ����       | ����       | Ӣ��              |
 | ---------- | ---------- | ----------------- |
-| 创建型模式 | 工厂模式   | Factory Pattern   |
-|            | 单例模式   | Singleton Pattern |
-|            | 原型模式   | Prototype Pattern |
-| 结构型模式 | 适配器模式 | Adapter Pattern   |
-|            | 装饰器模式 | Decorator Patter  |
-|            | 代理模式   | Proxy Pattern     |
-| 行为性模式 | 策略模式   | Strategy Pattern  |
-|            | 模板模式   | Template Pattern  |
-|            | 委派模式   | Delegate Pattern  |
-|            | 观察者模式 | Observer Pattern  |
+| ������ģʽ | ����ģʽ   | Factory Pattern   |
+|            | ����ģʽ   | Singleton Pattern |
+|            | ԭ��ģʽ   | Prototype Pattern |
+| �ṹ��ģʽ | ������ģʽ | Adapter Pattern   |
+|            | װ����ģʽ | Decorator Patter  |
+|            | ����ģʽ   | Proxy Pattern     |
+| ��Ϊ��ģʽ | ����ģʽ   | Strategy Pattern  |
+|            | ģ��ģʽ   | Template Pattern  |
+|            | ί��ģʽ   | Delegate Pattern  |
+|            | �۲���ģʽ | Observer Pattern  |
 
-## 3.工厂模式详解
+## 3.����ģʽ���
 
-### 3.1.工厂模式的历史由来
+### 3.1.����ģʽ����ʷ����
 
-原始社会自给自足（没有工厂）、农耕社会小作坊（**简单工厂**，民间酒
-坊）、工业革命流水线(**工厂方法**，自产自销)、现代产业链代工厂(**抽象工厂**，富士康)
+ԭʼ����Ը����㣨û�й�������ũ�����С������**�򵥹���**������
+��������ҵ������ˮ��(**��������**���Բ�����)���ִ���ҵ��������(**���󹤳�**����ʿ��)
 
-### 3.2.简单工厂模式
+### 3.2.�򵥹���ģʽ
 
-#### 3.2.1.定义
+#### 3.2.1.����
 
-**简单工厂模式（Simple Factory Pattern）**是指由一个工厂对象决定创建出哪一种产品类的实例，
-但它不属于GOF 23种设计模式。简单工厂适用于工厂类负责创建的对象较少的场景，且客户端只需要
-传入工厂类的参数，对于如何创建对象的逻辑不需要关心。
+**�򵥹���ģʽ��Simple Factory Pattern��**��ָ��һ���������������������һ�ֲ�Ʒ���ʵ����
+����������GOF 23�����ģʽ���򵥹��������ڹ����ฺ�𴴽��Ķ�����ٵĳ������ҿͻ���ֻ��Ҫ
+���빤����Ĳ�����������δ���������߼�����Ҫ���ġ�
 
 #### 3.2.2.demo
 
@@ -91,13 +91,13 @@ public class SimpleFactoryTest {
 
 public class JavaCourse implements ICourse {
     public void record() {
-        System.out.println("录制Java课程");
+        System.out.println("¼��Java�γ�");
     }
 }
 
 public class CourseFactory {
     public ICourse create(Class<? extends ICourse> clazz){
-        // 反射
+        // ����
         try {
             if (null != clazz) {
                 return clazz.newInstance();
@@ -115,8 +115,8 @@ public class CourseFactory {
 - Calendar.getInstance()
 - LoggerFactory.getLogger()
 
-简单工厂模式在 JDK 源码也是无处不在，现在我们来举个例子，例如 Calendar 类，看
-Calendar.getInstance()方法，下面打开的是Calendar的具体创建类：
+�򵥹���ģʽ�� JDK Դ��Ҳ���޴����ڣ������������ٸ����ӣ����� Calendar �࣬��
+Calendar.getInstance()����������򿪵���Calendar�ľ��崴���ࣺ
 
 ```
     private static Calendar createCalendar(TimeZone zone,
@@ -171,8 +171,8 @@ Calendar.getInstance()方法，下面打开的是Calendar的具体创建类：
     }
 ```
 
-还有一个大家经常使用的 logback，我们可以看到 LoggerFactory 中有多个重载的方法
-getLogger()：
+����һ����Ҿ���ʹ�õ� logback�����ǿ��Կ��� LoggerFactory ���ж�����صķ���
+getLogger()��
 
 ```
     public static Logger getLogger(String name) {
@@ -185,32 +185,32 @@ getLogger()：
     }
 ```
 
-#### 3.2.4.优缺点
+#### 3.2.4.��ȱ��
 
-- 优点
-  - 简单
-- 缺点
-  - 工厂类的职责相对过重，不易于扩展过于复杂的产品结构。
+- �ŵ�
+  - ��
+- ȱ��
+  - �������ְ����Թ��أ���������չ���ڸ��ӵĲ�Ʒ�ṹ��
 
-### 3.3.工厂方法模式
+### 3.3.��������ģʽ
 
-#### 3.3.1.定义
+#### 3.3.1.����
 
-**工厂方法模式（Factory Method Pattern**）是指定义一个创建对象的接口，但让实现这个接口的类
-来决定实例化哪个类，工厂方法让类的实例化推迟到子类中进行。在工厂方法模式中用户只需要关心所
-需产品对应的工厂，无须关心创建细节，而且加入新的产品符合开闭原则。
+**��������ģʽ��Factory Method Pattern**����ָ����һ����������Ľӿڣ�����ʵ������ӿڵ���
+������ʵ�����ĸ��࣬�������������ʵ�����Ƴٵ������н��С��ڹ�������ģʽ���û�ֻ��Ҫ������
+���Ʒ��Ӧ�Ĺ�����������Ĵ���ϸ�ڣ����Ҽ����µĲ�Ʒ���Ͽ���ԭ��
 
 #### 3.3.2.demo
 
 ```
 public class FactoryMethodTest {
     public static void main(String[] args) {
-        // Python课程工厂
+        // Python�γ̹���
         ICourseFactory factory = new PythonCourseFactory();
         ICourse course = factory.create();
         course.record();
 
-        // Java课程工厂
+        // Java�γ̹���
         factory = new JavaCourseFactory();
         course = factory.create();
         course.record();
@@ -229,7 +229,7 @@ public interface ICourseFactory {
 
 public class JavaCourse implements ICourse {
     public void record() {
-        System.out.println("录制Java课程");
+        System.out.println("¼��Java�γ�");
     }
 }
 
@@ -240,34 +240,34 @@ public interface ICourse {
 
 ![img](http://woshiamiaojiang.gitee.io/image-hosting/FactoryMethod.png)
 
-ApplicationContext就是工厂方法模式
+ApplicationContext���ǹ�������ģʽ
 
-再来看看logback中工厂方法模式的应用，看看类图就OK了：
+��������logback�й�������ģʽ��Ӧ�ã�������ͼ��OK�ˣ�
 
 ![img](http://woshiamiaojiang.gitee.io/image-hosting/FactoryMethod2.png)
 
-- 工厂方法适用于以下场景：
-  1. 创建对象需要大量重复的代码。
-  2. 客户端（应用层）不依赖于产品类实例如何被创建、实现等细节。
-  3. 一个类通过其子类来指定创建哪个对象。
-- 工厂方法也有缺点：
-  1. 类的个数容易过多，增加复杂度。
-  2. 增加了系统的抽象性和理解难度。
+- �����������������³�����
+  1. ����������Ҫ�����ظ��Ĵ��롣
+  2. �ͻ��ˣ�Ӧ�ò㣩�������ڲ�Ʒ��ʵ����α�������ʵ�ֵ�ϸ�ڡ�
+  3. һ����ͨ����������ָ�������ĸ�����
+- ��������Ҳ��ȱ�㣺
+  1. ��ĸ������׹��࣬���Ӹ��Ӷȡ�
+  2. ������ϵͳ�ĳ����Ժ������Ѷȡ�
 
-### 3.4.抽象工厂模式
+### 3.4.���󹤳�ģʽ
 
-#### 3.4.1.定义
+#### 3.4.1.����
 
-**抽象工厂模式（AbastractFactory Pattern）**是指提供一个创建一系列相关或相互依赖对象的接口，无须指定他们具体的类。客户端（应用层）不依赖于产品类实例如何被创建、实现等细节，强调的是一
-系列相关的产品对象（属于同一产品族）一起使用创建对象需要大量重复的代码。需要提供一个产品类
-的库，所有的产品以同样的接口出现，从而使客户端不依赖于具体实现。
+**���󹤳�ģʽ��AbastractFactory Pattern��**��ָ�ṩһ������һϵ����ػ��໥��������Ľӿڣ�����ָ�����Ǿ�����ࡣ�ͻ��ˣ�Ӧ�ò㣩�������ڲ�Ʒ��ʵ����α�������ʵ�ֵ�ϸ�ڣ�ǿ������һ
+ϵ����صĲ�Ʒ��������ͬһ��Ʒ�壩һ��ʹ�ô���������Ҫ�����ظ��Ĵ��롣��Ҫ�ṩһ����Ʒ��
+�Ŀ⣬���еĲ�Ʒ��ͬ���Ľӿڳ��֣��Ӷ�ʹ�ͻ��˲������ھ���ʵ�֡�
 
-讲解抽象工厂之前，我们要了解两个概念**产品等级结构**和**产品族**，看下面的图：
+������󹤳�֮ǰ������Ҫ�˽���������**��Ʒ�ȼ��ṹ**��**��Ʒ��**���������ͼ��
 
 ![image-20200225191403439](http://woshiamiaojiang.gitee.io/image-hosting/image-20200225191403439.png)
 
-再看下面的这张图，最左侧的小房子我们就认为**具体的工厂**，有**美的工厂**，有**海信工厂**，有**格力工厂**。
-**每个品牌的工厂**都生产**洗衣机**、**热水器**和**空调**。
+�ٿ����������ͼ��������С�������Ǿ���Ϊ**����Ĺ���**����**���Ĺ���**����**���Ź���**����**��������**��
+**ÿ��Ʒ�ƵĹ���**������**ϴ�»�**��**��ˮ��**��**�յ�**��
 
 ![image-20200225191741688](http://woshiamiaojiang.gitee.io/image-hosting/image-20200225191741688.png)
 
@@ -281,21 +281,21 @@ public class AbstractFactoryTest {
 }
 
 /**
- * 抽象工厂CourseFactory类：
- * 抽象工厂是用户的主入口
- * 在Spring中应用得最为广泛的一种设计模式
- * 易于扩展
+ * ���󹤳�CourseFactory�ࣺ
+ * ���󹤳����û��������
+ * ��Spring��Ӧ�õ���Ϊ�㷺��һ�����ģʽ
+ * ������չ
  */
 public abstract class CourseFactory {
     public void init(){
-        System.out.println("初始化基础数据");
+        System.out.println("��ʼ����������");
     }
     protected abstract INote createNote();
     protected abstract IVideo createVideo();
 }
 
 /**
- * 创建Java产品族的具体工厂JavaCourseFactory
+ * ����Java��Ʒ��ľ��幤��JavaCourseFactory
  */
 public class JavaCourseFactory extends CourseFactory {
     public INote createNote() {
@@ -309,43 +309,43 @@ public class JavaCourseFactory extends CourseFactory {
 }
 
 /**
- * 创建Java产品族，Java视频JavaVideo类：Java视频
+ * ����Java��Ʒ�壬Java��ƵJavaVideo�ࣺJava��Ƶ
  */
 public class JavaVideo implements IVideo {
     public void record() {
-        System.out.println("录制Java视频");
+        System.out.println("¼��Java��Ƶ");
     }
 }
 
 /**
- * 录播视频：IVideo接口
+ * ¼����Ƶ��IVideo�ӿ�
  */
 public interface IVideo {
     void record();
 }
 
 /**
- * 扩展产品等级Java课堂笔记JavaNote类：Java笔记
+ * ��չ��Ʒ�ȼ�Java���ñʼ�JavaNote�ࣺJava�ʼ�
  */
 public class JavaNote implements INote {
     public void edit() {
-        System.out.println("编写Java笔记");
+        System.out.println("��дJava�ʼ�");
     }
 }
 
 /**
- * 课堂笔记：INote接口
+ * ���ñʼǣ�INote�ӿ�
  */
 public interface INote {
     void edit();
 }
 
-// 创建Python产品族的具体工厂PythonCourseFactory省略。。。
+// ����Python��Ʒ��ľ��幤��PythonCourseFactoryʡ�ԡ�����
 ```
 
 ![img](http://woshiamiaojiang.gitee.io/image-hosting/AbstractFactory.png)
 
-#### 3.4.3.源码
+#### 3.4.3.Դ��
 
 AbstractFactory
 
@@ -353,96 +353,96 @@ AnnotationApplicationContext
 
 Xml
 
-适合长时间不变动的场景
+�ʺϳ�ʱ�䲻�䶯�ĳ���
 
-#### 3.4.3.优缺点
+#### 3.4.3.��ȱ��
 
-抽象工厂缺点
+���󹤳�ȱ��
 
-1. 规定了所有可能被创建的产品集合，产品族中扩展新的产品困难，需要修改抽象工厂的接口。
-2. 增加了系统的抽象性和理解难度。
+1. �涨�����п��ܱ������Ĳ�Ʒ���ϣ���Ʒ������չ�µĲ�Ʒ���ѣ���Ҫ�޸ĳ��󹤳��Ľӿڡ�
+2. ������ϵͳ�ĳ����Ժ������Ѷȡ�
 
-### 3.5.简单工厂 vs 工厂方法 vs 抽象工厂
+### 3.5.�򵥹��� vs �������� vs ���󹤳�
 
-简单工厂：产品的工厂
+�򵥹�������Ʒ�Ĺ���
 
-工厂方法：工厂的工厂
+���������������Ĺ���
 
-抽象工厂：复杂产品的工厂
+���󹤳������Ӳ�Ʒ�Ĺ���
 
-简单工厂：工厂是一个实体类，内部直接根据逻辑创建对应的产品。
+�򵥹�����������һ��ʵ���࣬�ڲ�ֱ�Ӹ����߼�������Ӧ�Ĳ�Ʒ��
 
-工厂方法：工厂首先有个接口定义规范。不同的产品使用不同的实体类工厂根据规范和需求创建对应的产品。这就是它们的区别。
+�������������������и��ӿڶ���淶����ͬ�Ĳ�Ʒʹ�ò�ͬ��ʵ���๤�����ݹ淶�����󴴽���Ӧ�Ĳ�Ʒ����������ǵ�����
 
-工厂方法是生产一类产品，抽象工厂是生产一个产品族
+��������������һ���Ʒ�����󹤳�������һ����Ʒ��
 
-### 3.6.作业
+### 3.6.��ҵ
 
-1、工厂类一定需要将构造方法私有化吗，为什么？
+1��������һ����Ҫ�����췽��˽�л���Ϊʲô��
 
-不一定。抽象工厂类就不能，否则父类的私有构造方法就不能被子类调用。
-只有工厂需要单例的时候才需要私有化。
+��һ�������󹤳���Ͳ��ܣ��������˽�й��췽���Ͳ��ܱ�������á�
+ֻ�й�����Ҫ������ʱ�����Ҫ˽�л���
 
-2、用工厂模式设计支付业务场景，包含跨境支付，支付宝、微信、银联支付，并画出类图。
+2���ù���ģʽ���֧��ҵ�񳡾��������羳֧����֧������΢�š�����֧������������ͼ��
 
 ```
 /**
- * description: 支付接口
+ * description: ֧���ӿ�
  */
 public interface IPay {
     /**
-     * 支付方法
+     * ֧������
      */
     void pay();
 }
 
 /**
- * description: 支付宝支付
+ * description: ֧����֧��
  */
 public class AliPay implements IPay {
     public void pay() {
-        System.out.println("支付宝支付");
+        System.out.println("֧����֧��");
     }
 }
 
 /**
- * description: 微信支付
+ * description: ΢��֧��
  */
 public class WxPay implements IPay {
     public void pay() {
-        System.out.println("微信支付");
+        System.out.println("΢��֧��");
     }
 }
 
 /**
- * description: 银联支付
+ * description: ����֧��
  */
 public class UniPay implements IPay {
     public void pay() {
-        System.out.println("银联支付");
+        System.out.println("����֧��");
     }
 }
 
 /**
- * description: 苹果支付
+ * description: ƻ��֧��
  */
 public class ApplePay implements IPay {
     public void pay() {
-        System.out.println("苹果支付");
+        System.out.println("ƻ��֧��");
     }
 }
 
 /**
- * description: 支付抽象工厂
+ * description: ֧�����󹤳�
  */
 public abstract class AbstractPayFactory {
     public void init() {
-        System.out.println("初始化基础数据");
+        System.out.println("��ʼ����������");
     }
 }
 
 /**
- * description: 国内支付
+ * description: ����֧��
  */
 public class ChinaPayFactory extends AbstractPayFactory {
     protected IPay createAliPay() {
@@ -462,7 +462,7 @@ public class ChinaPayFactory extends AbstractPayFactory {
 }
 
 /**
- * description: 国外支付
+ * description: ����֧��
  */
 public class ForeignPayFactory extends AbstractPayFactory {
     protected IPay createApplePay() {
@@ -472,7 +472,7 @@ public class ForeignPayFactory extends AbstractPayFactory {
 }
 
 /**
- * description: 抽象工厂方法测试
+ * description: ���󹤳���������
  */
 public class AbstractPayFactoryTest {
     public static void main(String[] args) {
