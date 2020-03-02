@@ -3,7 +3,7 @@ package com.test.wxx.singleton.serializable;
 import java.io.Serializable;
 
 /**
- *  序列花破坏单例
+ *  序列化破坏单例
  *  测试类SerializableSingletonTest.java
  */
 public class SerializableSingleton implements Serializable {
